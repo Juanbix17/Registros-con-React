@@ -32,9 +32,15 @@ function FormularioAcademico({ datos, setDatos, siguiente, anterior }) {
   };
 
   const continuar = (e) => {
-    e.preventDefault();
-    siguiente();
-  };
+  e.preventDefault();
+
+  if (cursos.length === 0) {
+    alert("Debe agregar mínimo un curso");
+    return;
+  }
+
+  siguiente();
+};
 
   return (
     <div className="formulario">

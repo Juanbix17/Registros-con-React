@@ -14,7 +14,6 @@ const Continuar = (e) => {
 }
  return (
    <div className="formulario">
-
             <h2>Registro de Aprendices</h2>
 
             <form onSubmit={Continuar}>
@@ -70,9 +69,9 @@ const Continuar = (e) => {
                 </div>
 
                 <div className="grupo">
-                    <label>Correo Electronico</label>
+                    <label>Correo Electrónico</label>
                     <input
-                        type="mail"
+                        type="email"
                         placeholder="correo@sena.edu.co"
                         value={datos.correo || ""} onChange={(e) => actualizar("correo", e.target.value)} required
                     />

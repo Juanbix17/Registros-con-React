@@ -38,12 +38,19 @@ function FormularioExperiencia({ datos, setDatos, anterior, siguiente }) {
 
   const continuar = (e) => {
     e.preventDefault();
+
+    if (datos.length === 0) {
+      alert("Debe agregar mínimo una experiencia");
+      return;
+    }
+
     siguiente();
   };
 
   return (
     <div className="formulario">
       <h2>Experiencia</h2>
+
       <form onSubmit={continuar}>
         <div className="grupo">
           <label>Empresa</label>
@@ -106,20 +113,45 @@ function FormularioExperiencia({ datos, setDatos, anterior, siguiente }) {
             <div className="experiencia-item" key={indice}>
               <div>
                 <strong>{experiencia.empresa}</strong>
-                <p><strong>Cargo:</strong> {experiencia.cargo || "No registrado"}</p>
-                <p><strong>Tiempo:</strong> {experiencia.tiempo || "No registrado"}</p>
-                <p><strong>Funciones:</strong> {experiencia.funciones || "No registrado"}</p>
-                <p><strong>Habilidades:</strong> {experiencia.habilidades || "No registrado"}</p>
+
+                <p>
+                  <strong>Cargo:</strong>{" "}
+                  {experiencia.cargo || "No registrado"}
+                </p>
+
+                <p>
+                  <strong>Tiempo:</strong>{" "}
+                  {experiencia.tiempo || "No registrado"}
+                </p>
+
+                <p>
+                  <strong>Funciones:</strong>{" "}
+                  {experiencia.funciones || "No registrado"}
+                </p>
+
+                <p>
+                  <strong>Habilidades:</strong>{" "}
+                  {experiencia.habilidades || "No registrado"}
+                </p>
               </div>
-              <button type="button" onClick={() => eliminarExperiencia(indice)}>
+
+              <button
+                type="button"
+                onClick={() => eliminarExperiencia(indice)}
+              >
                 Eliminar
               </button>
             </div>
           ))}
         </div>
 
-        <button type="button" onClick={anterior}>Anterior</button>
-        <button type="submit">Vista Previa</button>
+        <button type="button" onClick={anterior}>
+          Anterior
+        </button>
+
+        <button type="submit">
+          Vista Previa
+        </button>
       </form>
     </div>
   );
