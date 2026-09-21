@@ -1,4 +1,4 @@
-function VistaPrevia({ datos, academico, experiencia, anterior }) {
+function VistaPrevia({ datos, academico, experiencia, anterior, guardar }) {
   const campo = (etiqueta, valor) => (
     <p><strong>{etiqueta}:</strong> {valor || "No registrado"}</p>
   );
@@ -75,8 +75,9 @@ function VistaPrevia({ datos, academico, experiencia, anterior }) {
         </div>
       </div>
 
-      <button type="button" onClick={anterior}>Anterior</button>
-    </div>
+  
+</div>
+
   );
 }
 
